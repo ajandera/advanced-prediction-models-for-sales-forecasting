@@ -22,7 +22,7 @@ series based on its past values using a~linear model. The~extended long-term lin
 proved to be the~most effective, with comparison parameters such as R2 getting 0.9171, RMSE of 34.7782, and MSE ending
 with a~value of 1206.7.\\
 \\
-The dataset used for the~analysis was collected in 2022 as real orders. The~first part of the~dataset
+The dataset used for the~analysis was collected in 2022 as real completed e-shop orders. The~first part of the~dataset
 was used to train the~models, and the~second part was used to validate the~results.\\
 \\
 The results of this study were achieved in collaboration with the~E-commerce Association o.z,
@@ -39,63 +39,62 @@ increase profits, and achieve their goals.
 
 \chapter{Resume} \label{resume}
     \section{Analýza} \label{sk:analytic}
-    Lineárna predikcia je štatistická metóda používaná na predpovedanie budúcich hodnôt na základe historických dát pre
-    identifikaciu parametrov pouziva Durbin-Levinsonov algoritmus což je metóda riešenia sustav rovníc pre
-    autoregresívne (AR) modely, ktoré sú modely, kde aktuálny výstup závisí od predchádzajúcich výstupov. Algoritmus
+    Lineárna predikcia je štatistická metóda používaná na predikovanie budúcich hodnôt na základe historických dát pre
+    identifikáciu parametrov. Používa Durbin-Levinsonov algoritmus čo je metóda riešenia sústav rovníc pre
+    autoregresívne (AR) modely, kde aktuálny výstup závisí od predchádzajúcich výstupov. Algoritmus
     rieši problém lineárnej predikcie nájdením koeficientov AR modelu, ktoré minimalizujú chybu predikcie. Výsledné AR
     koeficienty môžu byť použité na predpovedanie budúcich hodnôt na základe minulých pozorovaní. Táto metóda by sa mala
-    používať s použitím vzoru lineárneho vzťahu medzi nezávislými a~závislými premennými. Tu je základný prehľad krokov
-    pri použití lineárnej predikcie na predpovedanie dát o predaji:\\
+    používať podľa vzoru lineárneho vzťahu medzi nezávislými a~závislými premennými. Základný prehľad krokov
+    pri použití lineárnej predikcie na predpovedanie dát o predaji je nasledovný:\\
     \begin{enumerate}
-        \item Zbierajte dáta o predaji\\
-        Získajte historické dáta o predaji produktu alebo služby, ktorú chcete predpovedať.
-        \item Vykreslite dáta\\
-        Vykreslite dáta o predaji v čase, aby ste vizuálne preskúmali trend\\a~identifikovali akékoľvek vzory.
-        \item Vyberte model\\
-        Vyberte vhodný lineárny model na zobrazenie vzťahu medzi nezávislými a~závislými
-        premennými v dátach. Napríklad by ste si mohli vybrať jednoduchý lineárny regresný model.
-        \item Natrénujte model\\
-        Natrénujte vybraný model na historických dátach o predaji napriklad pomocou metódy najmenšie štvorcov.
+        \item Zber dát o predaji\\
+        Získanie historických dát o predaji produktu alebo služby, ktoré chceme predpovedať.
+        \item Vykreslenie dát\\
+        Vykreslenie dát o predaji v čase, aby sa vizuálne preskúmal trend\\a~identifikovali sa akékoľvek vzory.
+        \item Výber modelu\\
+        Výber vhodného lineárneho modelu na zobrazenie vzťahu medzi nezávislými a~závislými
+        premennými v dátach. Napríklad jednoduchý lineárny regresný model.
+        \item Natrénovanie modelu\\
+        Natrénovanie vybraného modelu na historických dátach o predaji napriklad pomocou metódy najmenších štvorcov.
     \end{enumerate}
     Autoregresívne (AR) modely sú modely časových radov, ktoré popisujú vzťah medzi súčasnou hodnotou premennej a~jej
     minulými hodnotami.\\V autoregresívnom modeli je každé pozorovanie modelované ako lineárna kombinácia minulých
     pozorovaní, s váhami nazývanými AR koeficienty. AR modely sú široko používané v rôznych oblastiach, ako je ekonomika,
-    inžinierstvo a~financie na modelovanie a~predpovedanie časových radovov. Rád AR modelu, označované
+    inžinierstvo a~financie na modelovanie a~predpovedanie časových rádov. Rád AR modelu, označovaný
     ako "p", sa vzťahuje na počet minulých hodnôt použitých na predpovedanie súčasnej hodnoty. Napríklad AR(1) model
     používa len predchádzajúce pozorovanie na predpovedanie súčasnej hodnoty, zatiaľ čo AR(2) model používa predchádzajúce
     dve pozorovania.\\
     \\
     \textbf{Predpovedanie budúcich predajov}\\
-    Použijeme trénovaný model na predpovedanie budúcich predajov. Môžete chcieť generovať predpovede na niekoľko
-    mesiacov alebo rokov dopredu. Postupujte nasledovne:
+    Na predpovedanie budúcich predajov použijeme natrénovaný model, kde pri generovaní predikcii na niekoľko
+    mesiacov alebo rokov dopredu postupujeme nasledovne:
     \begin{enumerate}
-        \item Zhodnoťte model\\
-        Zhodnoťte presnosť predpovedí porovnaním s faktickými predajovými dátami. Na kvantifikáciu výkonu modelu
-        použite metriky ako priemerná absolútna chyba alebo koreňová stredná štvorcová chyba.
-        \item Vylepšite model\\
-        Ak je to potrebné, pridajte ďalšie nezávislé premenné alebo transformujte existujúce premenné, aby ste vylepšili
-        model.
-        \item Opakujte kroky trénovania a hodnotenia, kým nebudete mať model, ktorý poskytuje presné prognózy.
-        \item Pre výpočet posunu v dlhodobom predpovedaní môžete použiť autokorelačnú metódu. V tejto práci sa vyvinie
-        neurónová sieť na identifikáciu posunu a podobný mechanizmus pre optimálne určenie poradia.
+        \item Zhodnotenie modelu\\
+        Pre vyhodnotenie presnosti modelu porovnáme predikované dáta s reálnymi dátami z predaja. Na kvantifikáciu výkonu modelu 
+        je možné použiť porovnávacie kritéria ako MSE alebo RMSE. 
+        \item Vylepšenie modelu\\
+        Ak je potrebné, pridáme ďalšie nezávislé premenné alebo transformujeme existujúce premenné, aby sa model vylepšil.
+        \item Opakujeme kroky trénovania a vyhodnotenia modelu pomocou provnávacích kritérii pokiaľ model nebude mať presné výsledky. 
+        \item Pre výpočet posunu v dlhodobom predikovaní môžeme použiť autokorelačnú metódu. V diplomovej práci vytvoríme 
+        neurónovú sieť na identifikáciu posunu a podobný mechanizmus pre optimálny rád predikcie.
     \end{enumerate}
-    Použite trénovaný model na predpovedanie budúcich predajových dát. Môžete chcieť generovať
-    predpovede na niekoľko mesiacov alebo rokov dopredu.\\
+    Na predikciu dát budúceho predaja použijeme natrénovaný model, pomocou ktorého je možné generovať predikcie na niekoľko
+    mesiacov alebo rokov dopredu.\\
     \\
-    \textbf{Modely používané pre predikcie ekonomických dát} \\
-    Existuje niekoľko matematických modelov používaných pre predpovedanie predaja, vrátane:\\
+    \textbf{Modely používané na predikciu ekonomických dát} \\
+    Existuje niekoľko matematických modelov používaných na predikciu predaja, vrátane:\\
     \begin{enumerate}
-        \item Modely časových radov
-        \\Tieto modely sa používajú na analýzu a~predpovedanie ekonomických dát v čase,
-        ako sú sezónne výkyvy, trendy a~fluktuácie. Príklady zahŕňajú ARIMA (AutoRegressive Integrated Moving Average),
+        \item Modely časových rádov
+        \\Tieto modely sa používajú na analýzu a~predikovanie ekonomických dát v čase,
+        ako sú sezónne výkyvy, trendy a~fluktuácie, tj. ARIMA (AutoRegressive Integrated Moving Average),
         SARIMA (Seasonal ARIMA) a~exponenciálne vyhladzovanie.
         \item Regresné modely\\
         Tieto modely používajú historické údaje na určenie vzťahu medzi predajom a~jednou alebo
-        viacerými nezávislými premennými, ako sú cena, propagácia a~reklama. Príklady zahŕňajú lineárnu regresiu,
-        logistickú regresiu a~viacnásobnú regresiu.
-        \item Modely stromových rozhodnutí\\
-        Tieto modely používajú štruktúru stromu na rozhodovanie založené na vzťahu medzi
-        predajom a~viacerými nezávislými premennými. Príklady zahŕňajú CART (Klasifikácia a~regresia rozhodovacích
+        viacerými nezávislými premennými, ako sú cena, propagácia a~reklama. Napríklad lineárna regresia,
+        logistická regresia a~viacnásobná regresia.
+        \item Modely rozhodovacích stromov\\
+        Tieto modely používajú štruktúru stromu na rozhodovanie, ktoré sú založené na  základe vzťahu medzi
+        predajom a~viacerými nezávislými premennými. Napríklad CART (Klasifikácia a~regresia rozhodovacích
         stromov) a~náhodných stromov.
         \item Modely strojového učenia\\
         Tieto modely používajú algoritmy ako neurónové siete a~stroje s podpornými vektormi na predikovanie
@@ -104,7 +103,7 @@ increase profits, and achieve their goals.
     \textbf{Neurónove sieťe} \\
     Neurónová sieť je druh algoritmu strojového učenia inšpirovaný štruktúrou\\a~funkciou biologických neurónov v
     ľudskom mozgu. Skladá sa z prepojených uzlov, nazývaných neuróny, ktoré sú usporiadané do vrstiev. Vstupná vrstva
-    prijíma surové dáta, ako sú obrázky alebo text, a~prenáša ich do skrytých vrstiev, ktoré vykonávajú výpočty a~váhy
+    prijíma surové dáta, ako sú obrázky alebo texy, a~prenáša ich do skrytých vrstiev, ktoré vykonávajú výpočty a~váhy
     sa aplikujú na vstupné dáta pre vytvorenie predikcie. Nakoniec výstupná vrstva produkuje konečnú predikciu
     alebo klasifikáciu.\\
     \\
@@ -113,7 +112,7 @@ increase profits, and achieve their goals.
     jednotky produkujúcej výstupný signál neurónu.\\
     \\
     Neurónové siete sa trénujú na veľkých dátových súboroch pomocou procesu nazývaného spätné šírenie chyby, ktorý
-    upravuje váhy a~sklon neurónov, aby minimalizoval rozdiel medzi predpovedaným výstupom a~skutočným výstupom.
+    upravuje váhy a~zostup neurónov, aby minimalizoval rozdiel medzi predpovedaným výstupom a~skutočným výstupom.
     Akonáhle je neurónová sieť natrénovaná, môže sa použiť na predpovedanie nových dát.\\
     \\
     Neurón je základnou stavebnou jednotkou neurónovej siete, známy aj ako umelý neurón alebo perceptrón.
@@ -124,36 +123,36 @@ increase profits, and achieve their goals.
     matematickú funkciu a~produkuje výstup, ktorý sa posiela do ďalších neurónov v sieti. Vstupom do neurónu je
     zvyčajne vektor čísel a~každý vstup sa násobí príslušnou váhou.\\
     \\
-    Potom neuron sčíta vážené vstupy, pridáva sklon a~aplikuje aktivačnú funkciu na výsledok. Úlohou aktivačnej
+    Potom neuron sčíta vážené vstupy, pridáva zostup a~aplikuje aktivačnú funkciu na výsledok. Úlohou aktivačnej
     funkcie je zaviesť nelinearitu do neurónu, čo umožňuje neuronovej sieti naučiť sa zložité vzorce a~vzťahy v dátach.
     Existuje niekoľko rôznych typov aktivačných funkcií, ktoré sa môžu použiť, ako napríklad sigmoidná funkcia,
     ReLU (Rectified Linear Unit) funkcia a~tanh (hyperbolická tangens) funkcia.\\
     \\
-    Výstup neurónu sa zvyčajne posúva do ďalších neurónov v nasledujúcej vrstve neurónovej siete. Váhy a~sklon
+    Výstup neurónu sa zvyčajne posúva do ďalších neurónov v nasledujúcej vrstve neurónovej siete. Váhy a~zostup
     neurónov sa počas trénovania prispôsobujú technikou spätného šírenia chyby, ktorá zahŕňa výpočet gradientu chyby
-    vzhľadom na váhy a~aktualizovanie ich pomocou optimalizačného algoritmu, ako je stochastický gradientový zostup.\\
+    vzhľadom na váhy a~ich aktualizovanie pomocou optimalizačného algoritmu, ako je stochastický gradientný zostup.\\
     \\
-    Celkovo neuróny v neurónovej sieti spolupracujú na učení vzorcov a~vzťahov vstupných dát a~produkujú výstup,
+    Celkovo neuróny v neurónovej sieti spolupracujú na učení sa vzorcov a~vzťahov vstupných dát a~produkujú výstup,
     ktorý sa môže použiť pre rôzne úlohy, ako je klasifikácia, regresia a~predikcia.\\
     \\
     Neurónové siete sa úspešne uplatňujú v širokej škále oblastí, vrátane rozpoznávania obrazov a~reči, spracovania
     prirodzeného jazyka a~autonómnych vozidiel, medzi inými.
 
     \section{Syntéza}
-    Vychádzajme z kapitoly \ref{sk:analytic} a na ich základe vytvoríme nové matematické modely a~prístupy, aby sme mohli
-    vykonať rýchle a~presné predpovede predaja,ktoré sa skladajú z long-term lineárnej predikcie s individuálnymi
-    váhami vypočítanými pre každé obdobie, založené na Levinson-Durbinovej schéme, nový mode nazývane Extended Linear
+    Na základe teoretických poznatkov popísaných v kapitole \ref{sk:analytic} vytvoríme nové matematické modely a~prístupy, pre následnú
+    tvorbu rýchlych a~presných predikcii predaja, ktoré sa skladajú z long-term lineárnej predikcie s individuálnymi
+    váhami vypočítanými pre každé obdobie, založené na Levinsovo-Durbinovej schéme. Nový model nazveme Extended Linear
     Prediction (ELP). Očakávame lepšie výsledky než pri použití predikcie založenej na krátkodobej alebo štandardnej
-    long-term lineárnej predikcii (viď časť \ref{sec:lp}). Nakoniec, náš prístup bude predikovat budúce hodnoty predaja
-    na základe predchádzajúcich dát s lepšou odchýlkou, než to dokáže lineárna predikcia.\\
+    long-term lineárnej predikcii (viď časť \ref{sec:lp}). Nakoniec, náš model bude predikovať budúce hodnoty predaja
+    na základe predchádzajúcich dát s lepšou odchýlkou, než to dokáže štandardná predikcia.\\
     \\
-    Pre vytvorenie matematického modelu na predikciu predajných dát s periodickými trendmi môžeme použiť model
-    sezónnej ARIMA (SARIMA). Tento model zohľadňuje sezónne variácie v dátach a~používa autoregresívne a~kĺzavé
+    Pre vytvorenie matematického modelu na predikciu predajov dát s periodickými trendmi môžeme použiť sezónny model
+    ARIMA (SARIMA). Tento model zohľadňuje sezónne variácie v dátach a~používa autoregresívne a~kĺzavé
     priemerové členy na zachytenie vzorov a~trendov v dátach.\\
     \\
     Pre náš účel sme vytvorili rozšírenú dlhodobú predikciu, ktorá sa vysporiada so sezónnymi a~opakujúcimi sa vzormi
     v ekonomických dátach. Tento korekčný mechanizmus sa používa na zohľadnenie historických vrcholov v grafoch
-    napriec datasetom. Táto jednoduchá korekcia zvyšuje presnosť modelu a~získava lepšiu odpoveď
+    naprieč datasetom. Táto jednoduchá korekcia zvyšuje presnosť modelu a~získava lepšiu odpoveď
     vďaka psychologickým, sociologickým a~marketingovým aspektom v datasete.\\
     \\
     Na nastavenie periodických váh je potrebné vytvoriť vektor korekčných parametrov z pôvodného datasetu pomocou
@@ -161,77 +160,77 @@ increase profits, and achieve their goals.
     dlhodobú predikciu \ref{sec:extlonglp} s novými váhami a~získame tak lepšie výsledky.
 
     \section{Experiment}
-    Pripravme experiment na overenie dlhodobého lineárneho predikčného modelu objednávok internetového obchodu.
-    Zostavíme experiment podľa týchto krokov:
+    Priprava experimentu na overenie dlhodobého lineárneho predikčného modelu objednávok internetového obchodu.
+    Experiment zostavíme podľa týchto krokov:
     \begin{enumerate}
-        \item Definujeme problém a~ciele\\
-        Jasne definujte problém a~predmet ktoré má vyriešiť dlhodobý lineárny\\ predikčný model.
+        \item Definovanie problému a~cieľa\\
+        Jasne definujeme problém a~predmet, ktorý má vyriešiť dlhodobý lineárny\\ predikčný model.
         V našem pripadu je to predpovedať objednávky v internetovom obchode na dlhé časové obdobie
         pomocou lineárneho modelu.
-        \item  Zhromažďovanie údajov\\
-        Zhromažďujeme historické údaje o objednávkach online obchodov, ako je napríklad
-        objednávka dátumy, sumy objednávok a~ďalšie relevantné premenné. Tieto údaje budú použité trénovať a~overovať
-        model long-term lineárnej predikcie. Naše údaje boli zbierať z online systému storePredictor,
-        ktorý je dostupný na storepredictor.com a~údaje sú anonymizované a~pseudonimizované, aby sa mohli použiť
+        \item  Zber údajov\\
+        Dôležitý je zber historických údajov o objednávkach online obchodov, ako je napríklad
+        dátum objednávky, suma objednávok a~ďalšie relevantné premenné. Tieto údaje budú použité na trénovanie a~overenie
+        modelu long-term lineárnej predikcie. Naše údaje boli zozbierané z online systému storePredictor,
+        ktorý je dostupný na storepredictor.com, prčom~údaje sú anonymizované a~pseudonimizované, aby sa mohli použiť
         na ďalšie potrebné výpočty.
-        \item  Pripravíme údaje\\
+        \item  Priprava údajov\\
         Vyčistime a~predspracujeme údaje, aby sme sa uistili, že sú konzistentné a~vhodné na
         použitie v dlhodobom lineárnom predikčnom modeli. Toto môže zahŕňat postupy ako je odstraňovanie duplikátov,
-        spracovanie chýbajúcich hodnôt a~transformovanie premenné podľa potreby. Predspracovanie našich údajov
+        spracovanie chýbajúcich hodnôt a~transformovanie premenných podľa potreby. Predspracovanie našich údajov
         je popísané v \ref{subsec:preprocessing}.
-        \item  Vytvoríme model long-term lineárnej predikcie\\
+        \item  Vytvorenie modelu long-term lineárnej predikcie\\
         Pomocou historických údajov, vyvinieme dlhodobý lineárny predikčný model, ktorý dokáže predpovedať
-        internetový obchod objednávky počas určitého časového obdobia, ktoré je podrobne popísané v bode \ref{subsec:combining_models} a~prakticky
-        aplikovaný v \ref{evaluation}
+        objednávky internetového obchodu počas určitého časového obdobia, ktorý je podrobne popísaný v bode \ref{subsec:combining_models} a~praktické
+        aplikovanie v \ref{evaluation}
         \item  Overenie modelu\\
-        Keď je model vytvorený, je potrebné ho overiť, aby sme zabezpečili, že je presný a~účinný.
-        \item Vyhodnotíme výsledky\\
+        Keď je model vytvorený, je ho potrebné overiť, aby sme zabezpečili, že je presný a~účinný.
+        \item Vyhodnotenie výsledkov\\
         Analyzujeme výsledky experimentu, aby sme určili presnosť modelu long-term lineárnej
-        predikcie. To bude zahŕňať výpočet metrík, ako je stredná kvadratická chyba (MSE), r-square (R2) a~relativná stredná
+        predikcie. To bude zahŕňať výpočet porovnávacích krítérii, ako je stredná kvadratická chyba (MSE), r-square (R2) a~relativná stredná
         kvadratická chyba (RMSE) \ref{subsec:experimentResults}
         \item Počas riešenia predchádzajúcich krokov bol model predefinovaný a~revalidovaný, keď výsledky neboli uspokojivé,
-        upravili sme model a~zopakovali validáciu až kým nevzniknul presný a~efektívny dlhodobý lineárny predikčný model.
+        upravili sme model a~zopakovali validáciu až kým nevznikol presný a~efektívny long-term lineárny predikčný model.
     \end{enumerate}
-    Stručne povedané, museli sme pripraviť experiment na overenie long-term lineárnej predpovede model pre objednávky v
-    internetovom obchode, kde sme museli definovať problém a~ciele, zhromažďovať a~pripravovať údaje, vyvíjať model,
-    overovať ho, hodnotiť výsledky, a~ak je to potrebné, model spresnit a~znovu overovat.
+    Stručne povedané, museli sme pripraviť experiment na overenie long-term lineárnej predikcie modelu pre objednávky v
+    internetovom obchode, kde sme museli definovať problémy a~ciele, zhromažďovať a~pripravovať údaje, vyvinúť model,
+    overiť ho, zhodnotiť výsledky, a~ak bolo potrebné, model spresniť a~znovu overiť.
 
     \section{Záver}
     Cieľom tejto diplomovej práce bolo zlepšiť presnosť lineárnej predikcie
-    a vytvorit vlasné modely pre predaj a~finančné prognózy využívajúce moderné technológie
-    strojového učenia. Na dosiahnutie tohto cieľa sme vytvorili matematický model založený na dlhodobom lineárnom
-    predikčnom modeli a~boli implementované periodické váhy na zlepšenie presnosť lineárnych predikčných modelov.\\
+    a vytvoriť vlastné modely pre predikciu predaj a~finančných prognóz využívajúci moderné technológie
+    strojového učenia. Na dosiahnutie tohto cieľa sme vytvorili matematický model založený na long-term
+    predikčnom modeli a~boli implementované periodické váhy na zlepšenie presnosti lineárnych predikčných modelov.\\
     \\
-    Na aplikáciu strojového učenia na lineárne predikcie sme pouzili dve metódy. Prvá technika,
-    nazývaná inžinierstvo funkcií, zahŕňala použitie strojového učenia na extrahovanie zmysluplné
-    vlastnosti zo vstupného signálu, ktoré boli vtedy používané ako vstupy pre lineárny predikčný
-    model. Boli použité niques, vrátane analýzy hlavných komponentov, vlnkovej transformácie,
-    a~Fourierova transformácia.\\
+    Na aplikáciu strojového učenia na lineárne predikcie sme použili dve metódy. Prvá technika,
+    nazývaná inžinierstvo funkcií, ktorá zahŕňala použitie strojového učenia na extrahovanie vhodných
+    vlastností zo vstupných dát, ktoré boli vtedy používané ako vstupy pre lineárny predikčný
+    model.\\
     \\
-    Druhá technika zahŕňala výber modelu a~tréning, ktorý využíval schopnosť
+    Druhá technika zahŕňala výber modelu a~jeho trénovanie, ktorá využívala schopnosť
     naučiť sa vybrať najlepší lineárny model pre predikčnú úlohu a~odhadnúť jeho
     parametre z údajov. Bežné algoritmy strojového učenia, ako napríklad lineárna regresia,
-    podporná vektorová regresia a~umelé neurónové siete pre výber modelu a~tréning.\\
+    podporná vektorová regresia a~umelé neurónové siete, kde výber zahrňal modelu a~tréning.\\
     \\
-    Konečným cieľom dlhodobej lineárnej predikcie bolo odhadnúť budúce hodnoty
-    objdnávok alebo časového radu ekonomíckých dát na základe minulých hodnôt pomocou
+    Konečným cieľom long-term predikcie bolo predikovať budúce hodnoty
+    objdnávok alebo ekonomických dát na základe historických hodnôt pomocou
     lineárneho modelu. Rozšírená dlhodová predikcia z nášho experimentu sa ukázala ako
-    najefektívnejšia a porovnávacie parametre $R^2$ 0,9171, RMSE 34,7782 a~MSE 1206,7 byla zo všetkých
-    testovacích modelov najlepší.\\
+    najefektívnejšia a porovnávacie parametre $R^2$ 0,9171, RMSE 34,7782 a~MSE 1206,7 bolai zo všetkých
+    testovacích modelov najlepšie.\\
     \\
-    Súbor údajov použitý na analýzu sme zozbierali v roku 2022 ako skutočné objednávky. Prvu
-    časť súboru údajov bola použitá na trénovanie modelov a~druhá časť bola použitá na
-    overení výsledkov.\\
+    Súbor údajov použitý na analýzu sme zozbierali v roku 2022 ako skutočné objednávky. Prvá
+    časť datasetu bola použitá na trénovanie modelov a~druhá časť bola použitá na
+    ich verifikáciu.\\
     \\
-    Výsledky tejto štúdie boli dosiahnuté vo spolupráci s E-commerce
-    Association o.z, tvorca platformy storePredictor. Organizácia poskytla cenné obchodné
+    Výsledky tejto záverečnej práce boli dosiahnuté v spolupráci s E-commerce
+    Association o.z., tvorcom platformy storePredictor. Organizácia poskytla cenné obchodné
     poznatky v tomto odvetví, ktoré pomohli nastaviť mechanizmy
-    pre periodické váhy na rozšírenie modelov lineárnej predikcie s minimálnou odchzlkou.
+    pre periodické váhy na rozšírenie modelov lineárnej predikcie s minimálnou odchylkou.
     V dôsledku toho by sa ďalšie kroky mali zamerať na jasné definovanie a~overenie
     mechanizmov na nastavenie nezávislých odvetvových váh len na bežne dostupné údaje
     bez konzultácie s majiteľmi firiem.\\
     \\
-    Na záver, táto štúdia úspešne zlepšila presnosť lineárnej predikcie pre predaj a~finančné
+    Na záver, táto záverečná práca úspešne zlepšila presnosť lineárnej predikcie pre predaj a~finančné
     prognózy s využitím moderného strojového učenia. Výsledky tejto štúdie majú praktické
     dôsledky pre podniky, keďže presné predpovede im môžu pomôcť robiť lepšie rozhodnutia,
-    zvýšiť zisky a dosiahnuť svoje ciele.
+    zvýšiť zisky a dosiahnuť ich ciele.
+
